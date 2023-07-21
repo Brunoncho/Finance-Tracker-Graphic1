@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finance Tracker</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Date');
+      data.addColumn('number', 'Money');
+      data.addRows([
+        ['July 18, 2020', 9240],
+        ['August 15, 2020', 7540],
+        ['August 16, 2020', 7140],
+        ['August 21, 2020', 9640],
+        ['October 4, 2020', 9840],
+        ['October 29, 2020', 9860],
+        ['October 30, 2020', 9760],
+        ['November 26, 2020', 4760],
+        ['December 25, 2020', 6260],
+        ['December 26, 2020', 11260],
+        ['December 27, 2020', 11760],
+        ['December 31, 2021', 21000],
+        ['October 4, 2022', 16000],
+        ['December 25, 2022', 18758],
+        ['July 1, 2023', 20943],
+        ['July 3, 2023', 20249],
+        ['July 6, 2023', 19252],
+      ]);
+
+      var options = {
+        title: 'Finance Tracker',
+        titleTextStyle: { color: '#ff9900', fontName: 'Times', fontSize: 24 },
+        backgroundColor: '#0a0d4b',
+        curveType: 'none',
+        legend: { position: 'bottom', textStyle: { color: '#ff9900', fontName: 'Times', fontSize: 7 } },
+        vAxis: { textStyle: { color: '#ff9900', fontName: 'Times', fontSize: 7 } },
+        hAxis: { textStyle: { color: '#ff9900', fontName: 'Times', fontSize: 7 } },
+        series: {
+          0: { color: '#00ff00', lineWidth: 2, pointShape: 'diamond', pointSize: 5 },
+        },
+        width: '200%',
+        height: 300,
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="chart_div" style="width: 100%; height: 400px;"></div>
+</body>
+</html>
